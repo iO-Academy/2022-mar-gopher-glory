@@ -1,0 +1,18 @@
+body{
+    background-color: #FFD954;
+}
+
+.data_error{
+    display: none;
+}
+.number_error{
+    display:none;
+}
+
+.data_error.display{
+    display:block;
+}
+
+.number_error.display{
+    display:block;
+}
