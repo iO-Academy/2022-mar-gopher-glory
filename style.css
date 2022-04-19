@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Hind:wght@400;600;700&family=Lora:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1rem is now equivelent to 1px */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: #fff;
+    font-family: 'inter', sans-serif;
+    font-size: 1.8rem;
+    background: url(./Assets/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 25%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(0.3rem);
+}
+
+h1,
+h2 {
+    font-family: 'fredoka one';
+    color: #fff;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-size: 5.2rem;
+    margin-bottom: 2rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:2rem;
+}
+
+.container {
+    max-width: 75rem;
+    width: 90%;
+
+}
+
+.banner {
+    width: 50rem;
+    height: 15rem;
+    background: url(./Assets/sign_banner.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.splash {
+    background-color: #846954;
+    border-radius: 5rem;
+    box-shadow: 0rem 0.4rem 2.0rem #3C2112;
+    padding: 5rem;
+}
+
+.splash__content {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+}
+
+.splash__instructions {
+    background-color: #543B23;
+    box-shadow: 0px 4px 4px #6C4D39;
+    border-radius: 1.5rem;
+    padding: 3.5rem;
+
+}
+
+.splash__title {
+    margin-bottom:1.6rem;
+}
+
+.splash__form{
+    position: relative;
+}
+
+.splash__input-container {
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0px 4px 4px #6C4D39;
+    margin-bottom: 2rem;
+}
+
+.splash__label {
+    text-transform: uppercase;
+    background-color:  #A5D74D;
+    text-align: center; 
+    font-family: 'fredoka one';
+    font-size: 2rem;
+    border-radius: 1.5rem;
+    -webkit-text-stroke: 0.1rem black;
+    padding: 1.6rem;
+}
+
+.splash__input {
+    text-align: center; 
+    font-family: 'fredoka one';
+    border: none;
+    font-size: 2.6rem;
+    max-width: 16.5rem;
+}
+
+.splash__submit {
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    background: #FA8733;
+    border: 0.1rem solid #A5D74D;
+    box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+    color:#fff;
+    font-family: 'fredoka one';
+    font-size: 2rem;
+    border-radius: 1.5rem;
+    -webkit-text-stroke: 0.1rem black;
+    padding: 1.6rem;
+}
+
