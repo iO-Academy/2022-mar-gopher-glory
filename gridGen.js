@@ -10,7 +10,7 @@ function gridContent(height, width){
     for (let i = 1; i <= gridSize; i++){
         let text = `<div class="grid-slot miss" data-grid-id="${i}"><p>Bonjour</p></div>`
         innerHTML += text
-        console.log(i)
+
     }
     return innerHTML
 }
@@ -43,7 +43,6 @@ function hitGenerator(height, width, hits){
             targetCells.push(targetCell)         // Adds the cell to the array of targeted cells
             document.querySelector(`[data-grid-id = "${targetCell}"]`).classList.add('hit')
             document.querySelector(`[data-grid-id = "${targetCell}"]`).classList.remove('miss')
-            console.log(targetCell)
         } else {
             i--  // Decrements the counter if failed to find new cell (repeated cell), so that correct number of cells become hits
         }
@@ -72,9 +71,9 @@ function hitGenerator(height, width, hits){
 //     hitGenerator(form_inputs.rows, form_inputs.columns, form_inputs.gophers)
 // })
 
-let height = 70
-let width = 70
-let hits = 1
+let height = 10
+let width = 10
+let hits = 60
 // let hitsLeft = hits
 // let lives = height * width - hits
 
