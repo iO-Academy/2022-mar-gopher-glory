@@ -22,7 +22,7 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
-  backdrop-filter: blur(0.3rem);
+  backdrop-filter: blur(0.2rem);
 }
 img {
   display: block;
