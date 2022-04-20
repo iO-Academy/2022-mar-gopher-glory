@@ -16,3 +16,12 @@ body{
 .number_error.display{
     display:block;
 }
+
+#grid-container{
+    display: grid;
+}
+
+.grid-slot {
+    border: 1px solid black;
+    aspect-ratio: 1;
+}
