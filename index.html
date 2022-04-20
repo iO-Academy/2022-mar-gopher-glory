@@ -16,7 +16,7 @@
             <h1>Gopher Glory</h1>
         </div>
     </header>
-        <section class="splash card hidden">
+        <section class="splash card">
             <div class="splash__instructions">
                 <h2 class="splash__title">Instructions</h2>
                 <p class="splash__description">
@@ -29,15 +29,15 @@
             <form class="form">
                 <div class="form__input-container">
                     <label class="form__label border-txt" for="column">Columns</label>
-                    <input class="form__input" type="number" name="column" id="column" value="0">
+                    <input class="form__input" type="number" name="column" id="column" placeholder="0" max="12" min="3">
                 </div>
                 <div class="form__input-container">
                     <label class="form__label border-txt" for="row">Rows</label>
-                    <input class="form__input" type="number" name="row" id="row" value="0">
+                    <input class="form__input" type="number" name="row" id="row" placeholder="0" max="12" min="3">
                 </div>
                 <div class="form__input-container">
                     <label class="form__label border-txt" for="gopher">Gophers</label>
-                    <input class="form__input" type="number" name="hit" id="gopher" value="0">
+                    <input class="form__input" type="number" name="hit" id="gopher" placeholder="0">
                 </div>
                 <div class="error_container">
 
