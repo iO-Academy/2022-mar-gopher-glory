@@ -24,6 +24,11 @@ body {
   place-items: center;
   backdrop-filter: blur(0.3rem);
 }
+img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 
 h1,
 h2 {
@@ -134,4 +139,37 @@ header {
   border-radius: 1.5rem;
   box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
   padding: 1.6rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.game-board__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 2rem;
+  row-gap: 2em;
+}
+
+.game-item {
+  background-color: #543b23;
+  box-shadow: 0rem 0.4rem 0.4rem #6c4d39;
+  border-radius: 4rem;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+}
+
+.game-board__carrot {
+  background-image: url(./Assets/carrot.png);
+}
+
+.game-board__gopher {
+  background-image: url(./Assets/gopher.png);
+}
+
+.game-board__sapling {
+  background-image: url(./Assets/sapling.png);
 }
