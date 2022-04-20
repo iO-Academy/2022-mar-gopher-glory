@@ -14,35 +14,32 @@
             <h1>Gopher Glory</h1>
         </div>
     </header>
-    <section class="splash">
-            <div class="splash__content">
-                <div class="splash__instructions">
-                    <h2 class="splash__title">Instructions</h2>
-                    <p class="splash__description">Gophers! Those pesky critters have infested your carrot patch! Get over there and clear them out, but make sure not to pull up your carrots. </br> <br>
-
-                        Click on the tiles to check for gophers, if you get it wrong you’ll pull up a carrot instead. Pull up too many carrots before you get all the gophers and your harvest will be ruined and it’s GAME OVER
-                    </p>
-                </div>
-                <form class="splash__form">
-                    <div class="splash__input-container">
-                        <label class="splash__label" for="column">Columns</label>
-                        <input class="splash__input" type="number" name="column" id="column" value="0">
-                    </div>
-                    <div class="splash__input-container">
-                        <label class="splash__label" for="row">Rows</label>
-                        <input class="splash__input" type="number" name="row" id="row" value="0">
-                    </div>
-                    <div class="splash__input-container">
-                        <label class="splash__label" for="hit">Gophers</label>
-                        <input class="splash__input" type="number" name="hit" id="hit" value="0">
-                    </div>
-                    <input type="submit" class="splash__submit" value="START GAME">
-                </form>
-
+        <section class="splash card">
+            <div class="splash__instructions">
+                <h2 class="splash__title">Instructions</h2>
+                <p class="splash__description">
+                    Gophers! Those pesky critters have infested your carrot patch! Get over there and clear them out, but make sure not to pull up your carrots. 
+                <br>
+                <br>
+                    Click on the tiles to check for gophers, if you get it wrong you’ll pull up a carrot instead. Pull up too many carrots before you get all the gophers and your harvest will be ruined and it’s GAME OVER
+                </p>
             </div>
-
-    </section>
- </div>
-
+            <form class="form">
+                <div class="form__input-container">
+                    <label class="form__label border-txt" for="column">Columns</label>
+                    <input class="form__input" type="number" name="column" id="column" value="0">
+                </div>
+                <div class="form__input-container">
+                    <label class="form__label border-txt" for="row">Rows</label>
+                    <input class="form__input" type="number" name="row" id="row" value="0">
+                </div>
+                <div class="form__input-container">
+                    <label class="form__label border-txt" for="hit">Gophers</label>
+                    <input class="form__input" type="number" name="hit" id="hit" value="0">
+                </div>
+                <input type="submit" class="form__submit border-txt" value="START GAME">
+            </form>
+        </section>
+    </div>
 </body>
 </html>
