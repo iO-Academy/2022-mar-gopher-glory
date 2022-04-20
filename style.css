@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Hind:wght@400;600;700&family=Lora:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 1rem is now equivelent to 1px */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: #fff;
+  font-family: "inter", sans-serif;
+  font-size: 1.8rem;
+  background: url(./Assets/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 25%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(0.2rem);
+}
+img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2 {
+  font-family: "fredoka one";
+  color: #fff;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 5.2rem;
+  margin-bottom: 2rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.container {
+  max-width: 75rem;
+  width: 90%;
+}
+
+.banner {
+  width: 50rem;
+  height: 15rem;
+  background: url(./Assets/sign_banner.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: #846954;
+  border-radius: 5rem;
+  box-shadow: 0rem 0.4rem 2rem #3c2112;
+  padding: 5rem;
+}
+
+.border-txt {
+  font-family: "fredoka one";
+  font-size: 2rem;
+  color: #fff;
+  -webkit-text-stroke: 0.1rem black;
+}
+
+.splash {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4rem;
+}
+
+.splash__instructions {
+  background-color: #543b23;
+  box-shadow: 0px 4px 4px #6c4d39;
+  border-radius: 1.5rem;
+  padding: 3.5rem;
+}
+
+.splash__title {
+  margin-bottom: 1.6rem;
+}
+
+.form {
+  position: relative;
+}
+
+.form__input-container {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0px 4px 4px #6c4d39;
+  margin-bottom: 2rem;
+}
+
+.form__label {
+  text-transform: uppercase;
+  background-color: #a5d74d;
+  text-align: center;
+  border-radius: 1.5rem;
+  padding: 1.6rem;
+}
+
+.form__input {
+  text-align: center;
+  font-family: "fredoka one";
+  border: none;
+  font-size: 2.6rem;
+  max-width: 16.5rem;
+}
+
+.form__submit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #fa8733;
+  border: 0.1rem solid #a5d74d;
+  border-radius: 1.5rem;
+  box-shadow: 0rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  padding: 1.6rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.game-board__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 2rem;
+  row-gap: 2em;
+}
+
+.game-item {
+  background-color: #543b23;
+  box-shadow: 0rem 0.4rem 0.4rem #6c4d39;
+  border-radius: 4rem;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+}
+
+.game-board__carrot {
+  background-image: url(./Assets/carrot.png);
+}
+
+.game-board__gopher {
+  background-image: url(./Assets/gopher.png);
+}
+
+.game-board__sapling {
+  background-image: url(./Assets/sapling.png);
+}
