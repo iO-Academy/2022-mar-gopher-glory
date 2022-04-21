@@ -1,3 +1,5 @@
+const form = document.querySelector('form')
+
 /** Generates the content for the grid container, with default miss class and unique data-grid-id attributes
  *
  * @param height inputted height
@@ -49,4 +51,63 @@ function gridDefinition(height, width){
     }
 }
 
-gridDefinition(4,4)
+/** Checks whether an int is between 3 and 12
+ *
+ * @param int
+ * @returns {boolean}
+ */
+function checkRange(int) {
+    return !(int < 3 || int > 12);
+}
+
+/**
+ * validating form input for row and column numbers
+ *
+ * @returns object
+ */
+function inputGetter() {
+
+    let column = document.querySelector('#column').value
+    let row = document.querySelector('#row').value
+    let gopher = document.querySelector('#gopher').value
+    let parsedRow = parseInt(row)
+    let parsedColumn = parseInt(column)
+    let parsedGopher = parseInt(gopher)
+    let parsedObject = {
+        row: parsedRow,
+        column: parsedColumn,
+        gopher: parsedGopher
+    }
+    if (parsedGopher > Math.floor((parsedColumn * parsedRow) / 2)) {
+        document.querySelector(".error_container").textContent = "You must choose a number of gophers between 3 and "
+            + Math.floor((parsedColumn * parsedRow) / 2)
+        return false
+    }
+    Object.values(parsedObject).forEach(function (input) {
+        if (!Number.isInteger(input)) {
+            document.querySelector(".error_container").textContent = "What you playing at sucka! (incorrect datatype)"
+            return false
+        }
+    })
+    if (!checkRange(parsedObject.column)) {
+        console.log('here1')
+        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 30!"
+        return false
+    }
+    if (!checkRange(parsedObject.row)) {
+        console.log('here2')
+        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 30!"
+        return false
+    }
+
+    return parsedObject
+}
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault()
+    document.querySelector(".error_container").textContent = ""
+    const form_inputs = inputGetter()
+    if (form_inputs) {
+        gridDefinition(form_inputs.row, form_inputs.column)
+    }
+})

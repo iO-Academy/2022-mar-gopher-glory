@@ -7,7 +7,6 @@ let form = document.querySelector('form')
  *
  * @returns object
  */
-
 function inputGetter() {
 
     let column = document.querySelector('#column').value
