@@ -52,7 +52,7 @@ function hitOrMiss(e) {
  * @param int
  * @returns {boolean}
  */
-function checkRange(int) {
+function checkRowColumnRange(int) {
     return !(int < 3 || int > 12);
 }
 
@@ -81,11 +81,11 @@ function inputGetter() {
             return false
         }
     })
-    if (!checkRange(parsedObject.column)) {
+    if (!checkRowColumnRange(parsedObject.column)) {
         document.querySelector(".error_container").textContent = "Please enter a value between 3 and 12!"
         return false
     }
-    if (!checkRange(parsedObject.row)) {
+    if (!checkRowColumnRange(parsedObject.row)) {
         document.querySelector(".error_container").textContent = "Please enter a value between 3 and 12!"
         return false
     }
