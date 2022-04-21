@@ -1,6 +1,9 @@
 const form = document.querySelector('form')
 const splash = document.querySelector('.splash')
 const gameBoard = document.querySelector('.game-board')
+const endGameModalButtons = document.querySelectorAll('.modal__btn')
+const winModal = document.querySelector('.modal--winner')
+const loseModal = document.querySelector('.modal--loser')
 const carrotClass = 'game-board__carrot'
 const gopherClass = 'game-board__gopher'
 const saplingClass = 'game-board__sapling'
@@ -180,3 +183,15 @@ form.addEventListener('submit', function (e) {
     if (form_inputs) startNewGame(form_inputs)
 })
 
+endGameModalButtons.forEach(function (endGameModalBtn){
+    endGameModalBtn.addEventListener('click', function(e) {
+        if (!winModal.classList.contains('hidden')) {
+            winModal.classList.add('hidden')
+                toggleDisplay()
+        }
+        if (!loseModal.classList.contains('hidden')) {
+            loseModal.classList.add('hidden')
+                toggleDisplay()
+        } 
+    })
+})
