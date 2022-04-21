@@ -149,6 +149,10 @@ header {
   padding: 1.6rem;
 }
 
+.error_container {
+  font-size: 1.5rem;
+}
+
 .game-board__grid {
   display: grid;
   /* grid-template-columns: repeat(5, 1fr); */
