@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
     <script defer src="gopher_form.js"></script>
     <title>Gopher Glory</title>
 </head>
@@ -28,15 +29,15 @@
             <form class="form">
                 <div class="form__input-container">
                     <label class="form__label border-txt" for="column">Columns</label>
-                    <input class="form__input" type="number" name="column" id="column" value="0">
+                    <input class="form__input" type="number" name="column" id="column" placeholder="0" max="12" min="3">
                 </div>
                 <div class="form__input-container">
                     <label class="form__label border-txt" for="row">Rows</label>
-                    <input class="form__input" type="number" name="row" id="row" value="0">
+                    <input class="form__input" type="number" name="row" id="row" placeholder="0" max="12" min="3">
                 </div>
                 <div class="form__input-container">
                     <label class="form__label border-txt" for="gopher">Gophers</label>
-                    <input class="form__input" type="number" name="hit" id="gopher" value="0">
+                    <input class="form__input" type="number" name="hit" id="gopher" placeholder="0">
                 </div>
                 <div class="error_container">
 
@@ -44,6 +45,41 @@
                 </div>
                 <input type="submit" class="form__submit border-txt" value="START GAME">
             </form>
+        </section>
+
+        <section class="game-board card">
+            <div class="game-board__grid">
+                <div class="game-board__carrot game-item">   
+                </div>
+                <div class="game-board__gopher game-item">
+                </div>
+                <div class="game-board__sapling game-item">
+                </div>
+                <div class="game-board__carrot game-item">
+                </div>
+                <div class="game-board__gopher game-item">
+                </div>
+                <div class="game-board__sapling game-item">
+                </div>
+                <div class="game-board__carrot game-item">
+                </div>
+                <div class="game-board__gopher game-item">
+                </div>
+                <div class="game-board__sapling game-item">
+                </div>
+                <div class="game-board__carrot game-item">
+                </div>
+                <div class="game-board__gopher game-item">
+                </div>
+                <div class="game-board__sapling game-item">
+                </div>
+                <div class="game-board__carrot game-item">
+                </div>
+                <div class="game-board__gopher game-item">
+                </div>
+                <div class="game-board__sapling game-item">
+                </div> 
+            </div>
         </section>
     </div>
 </body>

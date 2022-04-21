@@ -21,7 +21,7 @@ function inputGetter() {
         column: parsedColumn,
         gopher: parsedGopher
     }
-    if (parsedGopher >= Math.floor((parsedColumn * parsedRow) / 2)) {
+    if (parsedGopher > Math.floor((parsedColumn * parsedRow) / 2)) {
         document.querySelector(".error_container").textContent = "You must choose a number of gophers between 3 and "
             + Math.floor((parsedColumn * parsedRow) / 2)
         return
@@ -45,7 +45,10 @@ form.addEventListener('submit', function (e) {
     e.preventDefault()
     document.querySelector(".error_container").textContent = ""
     form_inputs = inputGetter()
+    console.log(form_inputs)
 })
+
+
 
 
 
