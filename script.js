@@ -19,7 +19,7 @@ let gameState = {
  * @param width inputted width
  * @returns {string} innerHTML for the grid container
  */
-function gridContent(height, width){
+function gridContent(height, width) {
     let innerHTML = ''
     const gridSize = height * width
     for (let i = 1; i <= gridSize; i++){
@@ -198,7 +198,7 @@ form.addEventListener('submit', function (e) {
     if (form_inputs) startNewGame(form_inputs)
 })
 
-endGameModalButtons.forEach(function (endGameModalBtn){
+endGameModalButtons.forEach(function (endGameModalBtn) {
     endGameModalBtn.addEventListener('click', function(e) {
         if (!winModal.classList.contains('hidden')) {
             winModal.classList.add('hidden')
