@@ -74,7 +74,7 @@ function inputGetter() {
         column: parsedColumn,
         gopher: parsedGopher
     }
-    if (parsedGopher > Math.floor((parsedColumn * parsedRow) / 2)) {
+    if (parsedGopher > Math.floor((parsedColumn * parsedRow) / 2) || parsedGopher < 3) {
         document.querySelector(".error_container").textContent = "You must choose a number of gophers between 3 and "
             + Math.floor((parsedColumn * parsedRow) / 2)
         return false
