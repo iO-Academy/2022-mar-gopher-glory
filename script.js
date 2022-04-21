@@ -55,7 +55,7 @@ function hitOrMiss(e) {
  * @param int
  * @returns {boolean}
  */
-function checkRange(int) {
+function checkRowColumnRange(int) {
     return !(int < 3 || int > 12);
 }
 
@@ -65,35 +65,31 @@ function checkRange(int) {
  * @returns object
  */
 function inputGetter() {
-
-    let column = document.querySelector('#column').value
-    let row = document.querySelector('#row').value
-    let gopher = document.querySelector('#gopher').value
-    let parsedRow = parseInt(row)
-    let parsedColumn = parseInt(column)
-    let parsedGopher = parseInt(gopher)
+    let parsedRow = parseInt(document.querySelector('#row').value)
+    let parsedColumn = parseInt(document.querySelector('#column').value)
+    let parsedGopher = parseInt(document.querySelector('#gopher').value)
     let parsedObject = {
         row: parsedRow,
         column: parsedColumn,
         gopher: parsedGopher
     }
-    if (parsedGopher > Math.floor((parsedColumn * parsedRow) / 2)) {
+    if (parsedGopher > Math.floor((parsedColumn * parsedRow) / 2) || parsedGopher < 3) {
         document.querySelector(".error_container").textContent = "You must choose a number of gophers between 3 and "
             + Math.floor((parsedColumn * parsedRow) / 2)
         return false
     }
     Object.values(parsedObject).forEach(function (input) {
         if (!Number.isInteger(input)) {
-            document.querySelector(".error_container").textContent = "What you playing at sucka! (incorrect datatype)"
+            document.querySelector(".error_container").textContent = "What you playing at sucka!"
             return false
         }
     })
-    if (!checkRange(parsedObject.column)) {
-        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 12!"
+    if (!checkRowColumnRange(parsedObject.column)) {
+        document.querySelector(".error_container").textContent = "Number of rows must be between 3 and 12!"
         return false
     }
-    if (!checkRange(parsedObject.row)) {
-        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 12!"
+    if (!checkRowColumnRange(parsedObject.row)) {
+        document.querySelector(".error_container").textContent = "Number of columns must be between 3 and 12!"
         return false
     }
 
@@ -107,7 +103,7 @@ function inputGetter() {
  * @param hits inputted desired number of hits
  */
 function hitGenerator(height, width, hits){
-    let gridSize = height * width
+    const gridSize = height * width
     if (hits > gridSize) return // Checks if hits exceeds the size of the grid, and kicks out of function if it is
     let targetCells = [] // Keeps track of the cells that have already been turned to 'hit'
     for (let i = 0; i < hits; i++){
@@ -122,7 +118,9 @@ function hitGenerator(height, width, hits){
     }
 }
 
-
+/** Hides start screen, displays game grid
+ * 
+ */
 function toggleDisplay() {
     splash.classList.toggle('hidden')
     gameBoard.classList.toggle('hidden')
@@ -138,10 +136,10 @@ function startNewGame(form_inputs) {
     gridDefinition(rows, columns)
     hitGenerator(rows, columns, gophers)
     toggleDisplay()
-    let clickedItems = document.querySelectorAll('.game-item')
+    const gridTiles = document.querySelectorAll('.game-item')
 
-    clickedItems.forEach(function(clickedItem) {
-        clickedItem.addEventListener('click', hitOrMiss)
+    gridTiles.forEach(function(gridTiles) {
+        gridTiles.addEventListener('click', hitOrMiss)
     })
 }
 
