@@ -1,6 +1,10 @@
 const form = document.querySelector('form')
 const splash = document.querySelector('.splash')
 const gameBoard = document.querySelector('.game-board')
+const endGameModalButtons = document.querySelectorAll('.modal__btn')
+// const modals = document.querySelectorAll('.modal')
+const winModal = document.querySelector('.modal--winner')
+const loseModal = document.querySelector('.modal--loser')
 
 /** Generates the content for the grid container, with default miss class and unique data-grid-id attributes
  *
@@ -142,11 +146,22 @@ function startNewGame(form_inputs) {
     toggleDisplay()
 }
 
-
-
 form.addEventListener('submit', function (e) {
     e.preventDefault()
     document.querySelector(".error_container").textContent = ""
     const form_inputs = inputGetter()
     if (form_inputs) startNewGame(form_inputs)
+})
+
+endGameModalButtons.forEach(function (endGameModalBtn){
+    endGameModalBtn.addEventListener('click', function(e) {
+        if (!winModal.classList.contains('hidden')) {
+            winModal.classList.add('hidden')
+                toggleDisplay()
+        }
+        if (!loseModal.classList.contains('hidden')) {
+            loseModal.classList.add('hidden')
+                toggleDisplay()
+        } 
+    })
 })
