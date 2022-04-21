@@ -77,16 +77,16 @@ function inputGetter() {
     }
     Object.values(parsedObject).forEach(function (input) {
         if (!Number.isInteger(input)) {
-            document.querySelector(".error_container").textContent = "What you playing at sucka! (incorrect datatype)"
+            document.querySelector(".error_container").textContent = "What you playing at sucka!"
             return false
         }
     })
     if (!checkRowColumnRange(parsedObject.column)) {
-        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 12!"
+        document.querySelector(".error_container").textContent = "Number of rows must be between 3 and 12!"
         return false
     }
     if (!checkRowColumnRange(parsedObject.row)) {
-        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 12!"
+        document.querySelector(".error_container").textContent = "Number of columns must be between 3 and 12!"
         return false
     }
 
@@ -100,7 +100,7 @@ function inputGetter() {
  * @param hits inputted desired number of hits
  */
 function hitGenerator(height, width, hits){
-    let gridSize = height * width
+    const gridSize = height * width
     if (hits > gridSize) return // Checks if hits exceeds the size of the grid, and kicks out of function if it is
     let targetCells = [] // Keeps track of the cells that have already been turned to 'hit'
     for (let i = 0; i < hits; i++){
@@ -115,7 +115,9 @@ function hitGenerator(height, width, hits){
     }
 }
 
-
+/** Hides start screen, displays game grid
+ * 
+ */
 function toggleDisplay() {
     splash.classList.toggle('hidden')
     gameBoard.classList.toggle('hidden')
@@ -131,10 +133,10 @@ function startNewGame(form_inputs) {
     gridDefinition(rows, columns)
     hitGenerator(rows, columns, gophers)
     toggleDisplay()
-    let clickedItems = document.querySelectorAll('.game-item')
+    const gridTiles = document.querySelectorAll('.game-item')
 
-    clickedItems.forEach(function(clickedItem) {
-        clickedItem.addEventListener('click', hitOrMiss)
+    gridTiles.forEach(function(gridTiles) {
+        gridTiles.addEventListener('click', hitOrMiss)
     })
 }
 
