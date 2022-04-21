@@ -49,6 +49,7 @@ p {
 h1 {
   font-size: 5.2rem;
   margin-bottom: 2rem;
+
 }
 
 header {
@@ -69,11 +70,28 @@ header {
   background: url(./Assets/sign_banner.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.animateBanner {
+  animation-name: slide;
+  animation-duration: 1s;
+
+}
+
+@keyframes slide {
+  from {
+    margin-top: -100%;
+  }
+
+  to {
+    margin-top: 0%;
+  }
+}
+
+
 
 .card {
   background-color: #846954;

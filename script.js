@@ -4,6 +4,7 @@ const gameBoard = document.querySelector('.game-board')
 const endGameModalButtons = document.querySelectorAll('.modal__btn')
 const winModal = document.querySelector('.modal--winner')
 const loseModal = document.querySelector('.modal--loser')
+const banner = document.querySelector('.banner')
 const carrotClass = 'game-board__carrot'
 const gopherClass = 'game-board__gopher'
 const saplingClass = 'game-board__sapling'
@@ -194,12 +195,14 @@ function startNewGame(form_inputs) {
 form.addEventListener('submit', function (e) {
     e.preventDefault()
     document.querySelector(".error_container").textContent = ""
+    banner.classList.remove('animateBanner')
     const form_inputs = inputGetter()
     if (form_inputs) startNewGame(form_inputs)
 })
 
 endGameModalButtons.forEach(function (endGameModalBtn){
     endGameModalBtn.addEventListener('click', function(e) {
+        banner.classList.add('animateBanner')
         if (!winModal.classList.contains('hidden')) {
             winModal.classList.add('hidden')
                 toggleDisplay()
