@@ -145,6 +145,10 @@ header {
   padding: 1.6rem;
 }
 
+.error_container {
+  font-size: 1.5rem;
+}
+
 .hidden {
   display: none;
 }

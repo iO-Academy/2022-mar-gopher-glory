@@ -62,13 +62,9 @@ function checkRange(int) {
  * @returns object
  */
 function inputGetter() {
-    // if (emptyLine['can' =  'go']) return 'sucka'
-    let column = document.querySelector('#column').value
-    let row = document.querySelector('#row').value
-    let gopher = document.querySelector('#gopher').value
-    let parsedRow = parseInt(row)
-    let parsedColumn = parseInt(column)
-    let parsedGopher = parseInt(gopher)
+    let parsedRow = parseInt(document.querySelector('#row').value)
+    let parsedColumn = parseInt(document.querySelector('#column').value)
+    let parsedGopher = parseInt(document.querySelector('#gopher').value)
     let parsedObject = {
         row: parsedRow,
         column: parsedColumn,
