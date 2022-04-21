@@ -229,9 +229,7 @@ function startNewGame(form_inputs) {
     gridDefinition(rows, columns)
     hitGenerator(rows, columns, gophers)
     let rowHints = getRowHints(rows)
-    console.log(rowHints)
     let columnHints = getColHints(columns)
-    console.log(columnHints)
     setRowHintText(rowHints)
     setColHintText(columnHints)
     gameState.remainingGophers = gophers
