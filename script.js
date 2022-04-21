@@ -21,10 +21,27 @@ let gameState = {
  */
 function gridContent(height, width) {
     let innerHTML = ''
-    const gridSize = height * width
-    for (let i = 1; i <= gridSize; i++){
-        let text = `<div class="game-item game-board__sapling miss" data-grid-id="${i}"></div>`
-        innerHTML += text
+    const gridSize = (height+1) * (width+1)
+    let i = 0
+    for (let j = 1; j <= gridSize; j++){
+        if (j === 1){
+            let text = '<div class="game-item transparent"></div>'
+            innerHTML += text
+        } else if (j <= height + 1) {
+            let colPos = j-2
+            let text = `<div class="game-item column-hint" data-colPos="${colPos}"></div>`
+            innerHTML += text
+        } else if((j % (width + 1) === 1)) {
+            let rowPos = Math.floor((j/(width+1))-1)
+            let text = `<div class="game-item row-hint" data-rowPos="${rowPos}"></div>`
+            innerHTML += text
+        } else {
+            i++
+            let rowID = Math.floor((i - 1) / width) + 1
+            let columnID = ((i - 1) % width) + 1
+            let text = `<div class="game-item game-board__sapling miss" data-grid-id="${i}" data-rowID="${rowID}" data-colID="${columnID}"></div>`
+            innerHTML += text
+        }
     }
     return innerHTML
 }
@@ -37,8 +54,10 @@ function gridContent(height, width) {
 function gridDefinition(height, width){
     const gridCont = document.querySelector(".game-board__grid")
     gridCont.innerHTML= gridContent(height, width)
-    gridCont.style.gridTemplateColumns = `repeat(${width}, 1fr)`
-    gridCont.style.gridTemplateRows = `repeat(${height}, 1fr)`
+    const newHeight=height+1
+    const newWidth=width+1
+    gridCont.style.gridTemplateColumns = `repeat(${newWidth}, 1fr)`
+    gridCont.style.gridTemplateRows = `repeat(${newHeight}, 1fr)`
 }
 
 
@@ -172,6 +191,34 @@ function toggleGameLoss() {
     loseModal.classList.remove('hidden')
 }
 
+function getRowHints(height) {
+    let rowHintArray = []
+    for (let i=1; i<=height; i++){
+        rowHintArray.push(document.querySelectorAll(`.hit[data-rowID="${i}"]`).length)
+    }
+    return rowHintArray
+}
+
+function getColHints(width) {
+    let colHintArray = []
+    for (let i=1; i<=width; i++){
+        colHintArray.push(document.querySelectorAll(`.hit[data-colID="${i}"]`).length)
+    }
+    return colHintArray
+}
+
+function setRowHintText(rowHints) {
+    for (let i = 0; i < rowHints.length; i++){
+        document.querySelector(`[data-rowPos = "${i}"]`).textContent=rowHints[`${i}`]
+    }
+}
+
+function setColHintText(colHints) {
+    for (let i = 0; i < colHints.length; i++){
+        document.querySelector(`[data-colPos = "${i}"]`).textContent=colHints[`${i}`]
+    }
+}
+
 /** Start a new game with data from the form field
  *  @param form_inputs object
  */
@@ -181,6 +228,12 @@ function startNewGame(form_inputs) {
     const gophers = form_inputs.gopher
     gridDefinition(rows, columns)
     hitGenerator(rows, columns, gophers)
+    let rowHints = getRowHints(rows)
+    console.log(rowHints)
+    let columnHints = getColHints(columns)
+    console.log(columnHints)
+    setRowHintText(rowHints)
+    setColHintText(columnHints)
     gameState.remainingGophers = gophers
     gameState.remainingCarrots = (rows * columns) - gophers
     toggleDisplay()
