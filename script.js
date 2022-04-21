@@ -1,6 +1,9 @@
 const form = document.querySelector('form')
 const splash = document.querySelector('.splash')
 const gameBoard = document.querySelector('.game-board')
+const carrotClass = 'game-board__carrot'
+const gopherClass = 'game-board__gopher'
+const saplingClass= 'game-board__sapling'
 
 /** Generates the content for the grid container, with default miss class and unique data-grid-id attributes
  *
@@ -10,7 +13,7 @@ const gameBoard = document.querySelector('.game-board')
  */
  function gridContent(height, width){
     let innerHTML = ''
-    let gridSize = height * width
+    const gridSize = height * width
     for (let i = 1; i <= gridSize; i++){
         let text = `<div class="game-item game-board__sapling miss" data-grid-id="${i}"></div>`
         innerHTML += text
@@ -25,7 +28,7 @@ const gameBoard = document.querySelector('.game-board')
  * @param width inputted width
  */
 function gridDefinition(height, width){
-    let gridCont = document.querySelector(".game-board__grid")
+   const gridCont = document.querySelector(".game-board__grid")
     gridCont.innerHTML= gridContent(height, width)
     gridCont.style.gridTemplateColumns = `repeat(${width}, 1fr)`
     gridCont.style.gridTemplateRows = `repeat(${height}, 1fr)`
@@ -37,14 +40,14 @@ function gridDefinition(height, width){
  * @param e
  */
 function hitOrMiss(e) {
-    let target = e.currentTarget.classList
-    if (target.contains('game-board__carrot') ||target.contains('game-board__gopher')) {
-        return
-    } else if (target.contains('miss')) {
-        target.replace('game-board__sapling', 'game-board__carrot')
-        return
+    const clickedClass = e.currentTarget.classList
+    if (clickedClass.contains(saplingClass)) {
+        if (clickedClass.contains('miss')) {
+            clickedClass.replace(saplingClass, carrotClass)
+        } else {
+            clickedClass.replace(saplingClass, gopherClass)
+        }
     }
-    target.replace('game-board__sapling', 'game-board__gopher')
 }
 
 /** Checks whether an int is between 3 and 12
