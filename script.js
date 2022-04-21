@@ -92,13 +92,11 @@ function inputGetter() {
         }
     })
     if (!checkRange(parsedObject.column)) {
-        console.log('here1')
-        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 30!"
+        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 12!"
         return false
     }
     if (!checkRange(parsedObject.row)) {
-        console.log('here2')
-        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 30!"
+        document.querySelector(".error_container").textContent = "Please enter a value between 3 and 12!"
         return false
     }
 
