@@ -1,4 +1,6 @@
 const form = document.querySelector('form')
+const splash = document.querySelector('.splash')
+const gameBoard = document.querySelector('.game-board')
 
 /** Generates the content for the grid container, with default miss class and unique data-grid-id attributes
  *
@@ -103,11 +105,50 @@ function inputGetter() {
     return parsedObject
 }
 
+/** Randomly selects a number of cells to change to hit class
+ *
+ * @param height inputted height
+ * @param width inputted width
+ * @param hits inputted desired number of hits
+ */
+function hitGenerator(height, width, hits){
+    let gridSize = height * width
+    if (hits > gridSize) return // Checks if hits exceeds the size of the grid, and kicks out of function if it is
+    let targetCells = [] // Keeps track of the cells that have already been turned to 'hit'
+    for (let i = 0; i < hits; i++){
+        let targetCell = Math.floor(Math.random() * (gridSize)) + 1  //generates a random number between (inclusive of) 1 and hits
+        if (!targetCells.includes(targetCell)){  // Checks whether the cell has been targeted before
+            targetCells.push(targetCell)         // Adds the cell to the array of targeted cells
+            document.querySelector(`[data-grid-id = "${targetCell}"]`).classList.add('hit')
+            document.querySelector(`[data-grid-id = "${targetCell}"]`).classList.remove('miss')
+        } else {
+            i--  // Decrements the counter if failed to find new cell (repeated cell), so that correct number of cells become hits
+        }
+    }
+}
+
+function toggleDisplay() {
+    splash.classList.toggle('hidden')
+    gameBoard.classList.toggle('hidden')
+}
+
+/** Start a new game with data from the form field
+ *  @param form_inputs object
+ */
+function startNewGame(form_inputs) {
+    let rows = form_inputs.row
+    let columns = form_inputs.column
+    let gophers = form_inputs.gopher
+    gridDefinition(rows, columns)
+    hitGenerator(rows, columns, gophers)
+    toggleDisplay()
+}
+
+
+
 form.addEventListener('submit', function (e) {
     e.preventDefault()
     document.querySelector(".error_container").textContent = ""
     const form_inputs = inputGetter()
-    if (form_inputs) {
-        gridDefinition(form_inputs.row, form_inputs.column)
-    }
+    if (form_inputs) startNewGame(form_inputs)
 })
