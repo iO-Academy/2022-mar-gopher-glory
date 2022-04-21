@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
     <title>Gopher Glory</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
             <h1>Gopher Glory</h1>
         </div>
     </header>
-        <section class="splash card hidden">
+        <section class="splash card">
             <div class="splash__instructions">
                 <h2 class="splash__title">Instructions</h2>
                 <p class="splash__description">
@@ -27,53 +28,26 @@
             <form class="form">
                 <div class="form__input-container">
                     <label class="form__label border-txt" for="column">Columns</label>
-                    <input class="form__input" type="number" name="column" id="column" value="0">
+                    <input class="form__input" type="number" name="column" id="column" placeholder="3" max="12" min="3" required>
                 </div>
                 <div class="form__input-container">
                     <label class="form__label border-txt" for="row">Rows</label>
-                    <input class="form__input" type="number" name="row" id="row" value="0">
+                    <input class="form__input" type="number" name="row" id="row" placeholder="3" max="12" min="3" required>
                 </div>
                 <div class="form__input-container">
-                    <label class="form__label border-txt" for="hit">Gophers</label>
-                    <input class="form__input" type="number" name="hit" id="hit" value="0">
+                    <label class="form__label border-txt" for="gopher">Gophers</label>
+                    <input class="form__input" type="number" name="hit" id="gopher" placeholder="3" max="72" min="3" required>
+                </div>
+                <div class="error_container">
+
+
                 </div>
                 <input type="submit" class="form__submit border-txt" value="START GAME">
             </form>
         </section>
 
-        <section class="game-board card">
-            <div class="game-board__grid">
-                <div class="game-board__carrot game-item">   
-                </div>
-                <div class="game-board__gopher game-item">
-                </div>
-                <div class="game-board__sapling game-item">
-                </div>
-                <div class="game-board__carrot game-item">
-                </div>
-                <div class="game-board__gopher game-item">
-                </div>
-                <div class="game-board__sapling game-item">
-                </div>
-                <div class="game-board__carrot game-item">
-                </div>
-                <div class="game-board__gopher game-item">
-                </div>
-                <div class="game-board__sapling game-item">
-                </div>
-                <div class="game-board__carrot game-item">
-                </div>
-                <div class="game-board__gopher game-item">
-                </div>
-                <div class="game-board__sapling game-item">
-                </div>
-                <div class="game-board__carrot game-item">
-                </div>
-                <div class="game-board__gopher game-item">
-                </div>
-                <div class="game-board__sapling game-item">
-                </div> 
-            </div>
+        <section class="game-board card hidden">
+            <div class="game-board__grid"></div>
         </section>
     </div>
 </body>
