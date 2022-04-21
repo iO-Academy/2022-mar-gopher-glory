@@ -17,7 +17,6 @@ const saplingClass= 'game-board__sapling'
     for (let i = 1; i <= gridSize; i++){
         let text = `<div class="game-item game-board__sapling miss" data-grid-id="${i}"></div>`
         innerHTML += text
-
     }
     return innerHTML
 }
@@ -130,9 +129,9 @@ function toggleDisplay() {
  *  @param form_inputs object
  */
 function startNewGame(form_inputs) {
-    let rows = form_inputs.row
-    let columns = form_inputs.column
-    let gophers = form_inputs.gopher
+    const rows = form_inputs.row
+    const columns = form_inputs.column
+    const gophers = form_inputs.gopher
     gridDefinition(rows, columns)
     hitGenerator(rows, columns, gophers)
     toggleDisplay()
