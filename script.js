@@ -3,7 +3,7 @@ const splash = document.querySelector('.splash')
 const gameBoard = document.querySelector('.game-board')
 const carrotClass = 'game-board__carrot'
 const gopherClass = 'game-board__gopher'
-const saplingClass= 'game-board__sapling'
+const saplingClass = 'game-board__sapling'
 
 /** Generates the content for the grid container, with default miss class and unique data-grid-id attributes
  *
