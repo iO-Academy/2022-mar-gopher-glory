@@ -27,7 +27,7 @@ const saplingClass = 'game-board__sapling'
  * @param width inputted width
  */
 function gridDefinition(height, width){
-   const gridCont = document.querySelector(".game-board__grid")
+    const gridCont = document.querySelector(".game-board__grid")
     gridCont.innerHTML= gridContent(height, width)
     gridCont.style.gridTemplateColumns = `repeat(${width}, 1fr)`
     gridCont.style.gridTemplateRows = `repeat(${height}, 1fr)`
