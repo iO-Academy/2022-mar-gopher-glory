@@ -41,6 +41,7 @@ function gridDefinition(height, width){
     gridCont.style.gridTemplateRows = `repeat(${height}, 1fr)`
 }
 
+
 /**
  * This function changes game-board tiles on click based on hit or miss class
  *
@@ -52,12 +53,12 @@ function hitOrMiss(e) {
         if (clickedClass.contains('miss')) {
             clickedClass.replace(saplingClass, carrotClass)
             if(updateRemainingCarrots(gameState)){
-                console.log('you lose') // replace this with defeat screen
+                toggleGameLoss()
             }
         } else {
             clickedClass.replace(saplingClass, gopherClass)
             if(updateRemainingGophers(gameState)){
-                console.log('you win') // replace this with victory screen
+                toggleGameWin()
             }
         }
     }
@@ -155,6 +156,20 @@ function hitGenerator(height, width, hits){
 function toggleDisplay() {
     splash.classList.toggle('hidden')
     gameBoard.classList.toggle('hidden')
+}
+
+/** Toggles the winModal
+ *
+ */
+function toggleGameWin() {
+    winModal.classList.remove('hidden')
+}
+
+/** Toggles the loseModal
+ *
+ */
+function toggleGameLoss() {
+    loseModal.classList.remove('hidden')
 }
 
 /** Start a new game with data from the form field
