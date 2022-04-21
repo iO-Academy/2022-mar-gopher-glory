@@ -1,9 +1,17 @@
 const form = document.querySelector('form')
 const splash = document.querySelector('.splash')
 const gameBoard = document.querySelector('.game-board')
+const endGameModalButtons = document.querySelectorAll('.modal__btn')
+const winModal = document.querySelector('.modal--winner')
+const loseModal = document.querySelector('.modal--loser')
 const carrotClass = 'game-board__carrot'
 const gopherClass = 'game-board__gopher'
 const saplingClass = 'game-board__sapling'
+
+let gameState = {
+    remainingGophers: 0,
+    remainingCarrots: 0
+}
 
 /** Generates the content for the grid container, with default miss class and unique data-grid-id attributes
  *
@@ -11,7 +19,7 @@ const saplingClass = 'game-board__sapling'
  * @param width inputted width
  * @returns {string} innerHTML for the grid container
  */
- function gridContent(height, width){
+function gridContent(height, width) {
     let innerHTML = ''
     const gridSize = height * width
     for (let i = 1; i <= gridSize; i++){
@@ -33,6 +41,7 @@ function gridDefinition(height, width){
     gridCont.style.gridTemplateRows = `repeat(${height}, 1fr)`
 }
 
+
 /**
  * This function changes game-board tiles on click based on hit or miss class
  *
@@ -43,10 +52,34 @@ function hitOrMiss(e) {
     if (clickedClass.contains(saplingClass)) {
         if (clickedClass.contains('miss')) {
             clickedClass.replace(saplingClass, carrotClass)
+            if(updateRemainingCarrots(gameState)){
+                toggleGameLoss()
+            }
         } else {
             clickedClass.replace(saplingClass, gopherClass)
+            if(updateRemainingGophers(gameState)){
+                toggleGameWin()
+            }
         }
     }
+}
+
+/** Decrements remainingCarrots and checks if 0, returns boolean
+ *
+ * @returns {boolean}
+ */
+function updateRemainingCarrots(gameState) {
+    gameState.remainingCarrots--
+    return gameState.remainingCarrots === 0;
+}
+
+/** Decrements remainingGophers and checks if 0, returns boolean
+ *
+ * @returns {boolean}
+ */
+function updateRemainingGophers(gameState) {
+    gameState.remainingGophers--
+    return gameState.remainingGophers === 0;
 }
 
 /** Checks whether an int is between 3 and 12
@@ -118,11 +151,25 @@ function hitGenerator(height, width, hits){
 }
 
 /** Hides start screen, displays game grid
- * 
+ *
  */
 function toggleDisplay() {
     splash.classList.toggle('hidden')
     gameBoard.classList.toggle('hidden')
+}
+
+/** Toggles the winModal
+ *
+ */
+function toggleGameWin() {
+    winModal.classList.remove('hidden')
+}
+
+/** Toggles the loseModal
+ *
+ */
+function toggleGameLoss() {
+    loseModal.classList.remove('hidden')
 }
 
 /** Start a new game with data from the form field
@@ -134,6 +181,8 @@ function startNewGame(form_inputs) {
     const gophers = form_inputs.gopher
     gridDefinition(rows, columns)
     hitGenerator(rows, columns, gophers)
+    gameState.remainingGophers = gophers
+    gameState.remainingCarrots = (rows * columns) - gophers
     toggleDisplay()
     const gridTiles = document.querySelectorAll('.game-item')
 
@@ -149,3 +198,15 @@ form.addEventListener('submit', function (e) {
     if (form_inputs) startNewGame(form_inputs)
 })
 
+endGameModalButtons.forEach(function (endGameModalBtn) {
+    endGameModalBtn.addEventListener('click', function(e) {
+        if (!winModal.classList.contains('hidden')) {
+            winModal.classList.add('hidden')
+            toggleDisplay()
+        }
+        if (!loseModal.classList.contains('hidden')) {
+            loseModal.classList.add('hidden')
+            toggleDisplay()
+        }
+    })
+})
