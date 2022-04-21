@@ -5,6 +5,11 @@ const carrotClass = 'game-board__carrot'
 const gopherClass = 'game-board__gopher'
 const saplingClass = 'game-board__sapling'
 
+let gameState = {
+    remainingGophers: 0,
+    remainingCarrots: 0
+}
+
 /** Generates the content for the grid container, with default miss class and unique data-grid-id attributes
  *
  * @param height inputted height
@@ -43,10 +48,34 @@ function hitOrMiss(e) {
     if (clickedClass.contains(saplingClass)) {
         if (clickedClass.contains('miss')) {
             clickedClass.replace(saplingClass, carrotClass)
+            if(updateRemainingCarrots(gameState)){
+                console.log('you lose') // replace this with defeat screen
+            }
         } else {
             clickedClass.replace(saplingClass, gopherClass)
+            if(updateRemainingGophers(gameState)){
+                console.log('you win') // replace this with victory screen
+            }
         }
     }
+}
+
+/** Decrements remainingCarrots and checks if 0, returns boolean
+ *
+ * @returns {boolean}
+ */
+function updateRemainingCarrots(gameState) {
+    gameState.remainingCarrots--
+    return gameState.remainingCarrots === 0;
+}
+
+/** Decrements remainingGophers and checks if 0, returns boolean
+ *
+ * @returns {boolean}
+ */
+function updateRemainingGophers(gameState) {
+    gameState.remainingGophers--
+    return gameState.remainingGophers === 0;
 }
 
 /** Checks whether an int is between 3 and 12
@@ -134,6 +163,8 @@ function startNewGame(form_inputs) {
     const gophers = form_inputs.gopher
     gridDefinition(rows, columns)
     hitGenerator(rows, columns, gophers)
+    gameState.remainingGophers = gophers
+    gameState.remainingCarrots = (rows * columns) - gophers
     toggleDisplay()
     const gridTiles = document.querySelectorAll('.game-item')
 
