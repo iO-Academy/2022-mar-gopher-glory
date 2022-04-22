@@ -168,6 +168,20 @@ header {
   background-repeat: no-repeat;
   background-size: 70%;
   background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.column-hint,
+.row-hint {
+  color: #fff;
+  font-family: "fredoka one";
 }
 
 .game-board__carrot {
@@ -212,10 +226,9 @@ header {
   font-family: "fredoka one", sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  color: #6F6F6F;
+  color: #6f6f6f;
   margin-bottom: 3.2rem;
   letter-spacing: 1px;
-
 }
 
 .modal__btn {

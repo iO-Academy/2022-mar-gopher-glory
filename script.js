@@ -29,11 +29,11 @@ function gridContent(height, width) {
             innerHTML += text
         } else if (j <= height + 1) {
             let colPos = j-2
-            let text = `<div class="game-item column-hint" data-colPos="${colPos}"></div>`
+            let text = `<div class="game-item hint column-hint" data-colPos="${colPos}"></div>`
             innerHTML += text
         } else if((j % (width + 1) === 1)) {
             let rowPos = Math.floor((j/(width+1))-1)
-            let text = `<div class="game-item row-hint" data-rowPos="${rowPos}"></div>`
+            let text = `<div class="game-item hint row-hint" data-rowPos="${rowPos}"></div>`
             innerHTML += text
         } else {
             i++
@@ -43,6 +43,9 @@ function gridContent(height, width) {
             innerHTML += text
         }
     }
+    // if (height < 6 || width < 6) {
+        
+    // }
     return innerHTML
 }
 
@@ -54,6 +57,13 @@ function gridContent(height, width) {
 function gridDefinition(height, width){
     const gridCont = document.querySelector(".game-board__grid")
     gridCont.innerHTML= gridContent(height, width)
+
+    if (height < 6 || width < 6) {
+        document.querySelectorAll('.hint').forEach(hint => {
+            hint.style.fontSize = '72px'
+        })
+    }
+    
     const newHeight=height+1
     const newWidth=width+1
     gridCont.style.gridTemplateColumns = `repeat(${newWidth}, 1fr)`
