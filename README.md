@@ -19,11 +19,11 @@ and navigating to the directory
 cd 2022-mar-gopher-glory
 ```
 ## Authors 
-- Seb Lamberts @haefnir
-- Mike Lawrence @mjalawrence
-- Richard Mead @Mead-y
-- Ali McGarry @doubt-ur-vibe
-- Lottie Rugg-Easey @LottieRugg
+- Seb Lamberts [@haefnir](https://github.com/haefnir)
+- Mike Lawrence [@mjalawrence](https://github.com/mjalawrence)
+- Richard Mead [@Mead-y](https://github.com/Mead-y)
+- Ali McGarry [@doubt-ur-vibe](https://github.com/doubt-ur-vibe)
+- Lottie Rugg-Easey [@LottieRugg](https://github.com/LottieRugg)
 
 ## Live Game
 Go on, have a go.
@@ -32,4 +32,4 @@ https://dev.io-academy.uk/projects/2022-march/2022-mar-gopher-glory/
 ```
 
 ## Thanks to 
-- iO Academy and trainer @ashleycoles 🧑‍🌾
+- iO Academy and trainer [@ashleycoles](https://github.com/ashleycoles) 🧑‍🌾
